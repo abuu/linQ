@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="db">
+  <DataContextMoniker Name="/dbDataContext" />
+  <nestedChildShapes>
+    <classShape Id="ee46fc67-76fb-4249-9570-cc62ec66f322" absoluteBounds="2.25, 0.5, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/dbDataContext/dato_rpt" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f32dd3c6-dba5-4823-8fad-53563340b5c9" absoluteBounds="2.265, 0.96, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="67a3fc81-ec29-4865-99d6-fed3fd74af57" absoluteBounds="0.5, 2.75, 2, 1.9631982421875">
+      <DataClassMoniker Name="/dbDataContext/historial" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a93e32a0-972c-4942-8ddf-5f5bdf0b20c7" absoluteBounds="0.515, 3.21, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.25 : 1.38544840494792); (1.3749995 : 1.38544840494792); (1.3749995 : 2.75)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/dbDataContext/dato_rpt/dato_rpt_historial" />
+      <nodes>
+        <classShapeMoniker Id="ee46fc67-76fb-4249-9570-cc62ec66f322" />
+        <classShapeMoniker Id="67a3fc81-ec29-4865-99d6-fed3fd74af57" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="3af63190-de3d-442c-8f68-b0a812d74148" absoluteBounds="4.25, 2.875, 2, 1.3862939453125">
+      <DataClassMoniker Name="/dbDataContext/tipo_detalle" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6939429e-2da3-4f7d-859f-c97d72304897" absoluteBounds="4.265, 3.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.25 : 3.56814697265625); (2.5 : 3.56814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/dbDataContext/tipo_detalle/tipo_detalle_historial" />
+      <nodes>
+        <classShapeMoniker Id="3af63190-de3d-442c-8f68-b0a812d74148" />
+        <classShapeMoniker Id="67a3fc81-ec29-4865-99d6-fed3fd74af57" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="9b72a6b7-d907-4b08-947f-b24bccfe3ef5" absoluteBounds="4.875, 1.375, 2, 1.3862939453125">
+      <DataClassMoniker Name="/dbDataContext/trabajador" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a0f4493e-6978-4ba6-bcca-f9df4e74d596" absoluteBounds="4.89, 1.835, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(6.59375 : 2.7612939453125); (6.59375 : 4.51849609375); (2.5 : 4.51849609375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/dbDataContext/trabajador/trabajador_historial" />
+      <nodes>
+        <classShapeMoniker Id="9b72a6b7-d907-4b08-947f-b24bccfe3ef5" />
+        <classShapeMoniker Id="67a3fc81-ec29-4865-99d6-fed3fd74af57" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="SUPORT" Class="dbDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=SUPORT;Integrated Security=True" SettingsObjectName="FrmHistorial.My.MySettings" SettingsPropertyName="SUPORTConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.dato_rpt" Member="dato_rpt">
+    <Type Name="dato_rpt">
+      <Column Name="DATO_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DATO_DESC" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="DATO_TIPOCONTROL" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="DATO_LONGITUDTEXTO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TIPO_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="dato_rpt_historial" Member="historial" ThisKey="DATO_ID" OtherKey="DATO_ID" Type="historial" />
+    </Type>
+  </Table>
+  <Table Name="dbo.historial" Member="historial">
+    <Type Name="historial">
+      <Column Name="TRAB_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DATO_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TIPO_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TDET_ID" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="HIST_FECHA" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="HIST_TEXTO" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Association Name="dato_rpt_historial" Member="dato_rpt" ThisKey="DATO_ID" OtherKey="DATO_ID" Type="dato_rpt" IsForeignKey="true" />
+      <Association Name="tipo_detalle_historial" Member="tipo_detalle" ThisKey="TIPO_ID,TDET_ID" OtherKey="TIPO_ID,TDET_ID" Type="tipo_detalle" IsForeignKey="true" />
+      <Association Name="trabajador_historial" Member="trabajador" ThisKey="TRAB_ID" OtherKey="TRAB_ID" Type="trabajador" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tipo_detalle" Member="tipo_detalle">
+    <Type Name="tipo_detalle">
+      <Column Name="TIPO_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TDET_ID" Type="System.Byte" DbType="TinyInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TDET_DESC" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="tipo_detalle_historial" Member="historial" ThisKey="TIPO_ID,TDET_ID" OtherKey="TIPO_ID,TDET_ID" Type="historial" />
+    </Type>
+  </Table>
+  <Table Name="dbo.trabajador" Member="trabajador">
+    <Type Name="trabajador">
+      <Column Name="TRAB_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TRAB_CODIGO" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="TRAB_RAZONSOCIAL" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Association Name="trabajador_historial" Member="historial" ThisKey="TRAB_ID" OtherKey="TRAB_ID" Type="historial" />
+    </Type>
+  </Table>
+</Database>
